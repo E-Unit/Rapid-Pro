@@ -11,6 +11,7 @@
 import tkinter as tk
 from bin import new_file
 
+
 # ////////////////////////////////////////////
 __author__ = "Ernie Peters"
 __copyright__ = "Don't copy without permission"
@@ -68,6 +69,7 @@ class MenuBar(tk.Menu):
 class App(tk.Tk):
     def __init__(self):
         tk.Tk.__init__(self)
+        self.title("Rapid Pro")
         menubar = MenuBar(self)
         self.config(menu=menubar)
 
