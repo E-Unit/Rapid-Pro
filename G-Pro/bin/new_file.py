@@ -6,6 +6,6 @@ from tkinter import filedialog
 fd = filedialog
 
 def create_new_file():
-    print("Hi from inside new_file")
-    filename = fd.asksaveasfile(mode='w', defaultextension=".rpro")
+    exportFile = fd.asksaveasfile(mode='w', defaultextension=".rpro")
+    print(exportFile.name)
 
