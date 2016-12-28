@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 """ rapid_pro.py
-    App for programming/converting G-Cdde for Haas and Okuma Mills
+    App for programming/converting G-Code for Haas and Okuma Mills
     This app is taylored specifically for use by Rem-Tech ind.
 
 """
@@ -9,6 +9,7 @@
 
 # import statements
 import tkinter as tk
+from PIL import ImageTk, Image
 from bin import new_file
 
 
@@ -67,12 +68,17 @@ class MenuBar(tk.Menu):
 
 
 class App(tk.Tk):
-    def __init__(self):
-        tk.Tk.__init__(self)
+    def __init__(self, *args, **kwargs):
+        tk.Tk.__init__(self, *args, **kwargs)
+        container = tk.Frame(self)
+        self.wm_state('zoomed')
+        self.geometry("700x500")
         self.title("Rapid Pro")
+        container.pack(side="top", fill="both", expand=True)
+        container.grid_rowconfigure(0, weight=1)
+        container.grid_columnconfigure(0, weight=1)
         menubar = MenuBar(self)
         self.config(menu=menubar)
-
 
 if __name__ == "__main__":
     app = App()
