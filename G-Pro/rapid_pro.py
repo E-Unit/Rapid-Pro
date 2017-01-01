@@ -1,4 +1,5 @@
-#!/usr/bin/env python
+# !/usr/bin/python
+# -*- coding: utf-8 -*-
 
 """ rapid_pro.py
     App for programming/converting G-Code for Haas and Okuma Mills
@@ -8,9 +9,9 @@
 
 
 # import statements
-import tkinter as tk
+from tkinter import Tk, Frame, Menu
 from PIL import ImageTk, Image
-from bin import new_file
+# from bin import new_file
 
 
 # ////////////////////////////////////////////
@@ -25,61 +26,71 @@ __status__ = "Beta"
 # ////////////////////////////////////////////
 
 
-class MenuBar(tk.Menu):
+class App(Frame):
+
     def __init__(self, parent):
-        tk.Menu.__init__(self, parent)
-        self.file_menu()
-        self.edit_menu()
-        self.help_menu()
+        Frame.__init__(self, parent)
 
-    def file_menu(self):
-        filemenu = tk.Menu(self, tearoff=False)
-        self.add_cascade(label="File", menu=filemenu)
-        filemenu.add_command(label="New", command=new_file.create_new_file)
-        filemenu.add_command(label="Open", command=self.donothingfile)
-        filemenu.add_command(label="Save", command=self.donothingfile)
-        filemenu.add_command(label="Save as...", command=self.donothingfile)
-        filemenu.add_separator()
-        filemenu.add_command(label="Settings", command=self.donothingfile)
-        filemenu.add_separator()
-        filemenu.add_command(label="Exit", command=self.quit)
-
-    def edit_menu(self):
-        editmenu = tk.Menu(self, tearoff=False)
-        self.add_cascade(label="Edit", menu=editmenu)
-        editmenu.add_command(label="Undo", command=self.donothingedit)
-        editmenu.add_command(label="Copy", command=self.donothingedit)
-        editmenu.add_command(label="Cut", command=self.donothingedit)
-        editmenu.add_command(label="Paste", command=self.donothingedit)
-
-    def help_menu(self):
-        helpmenu = tk.Menu(self, tearoff=False)
-        self.add_cascade(label="Help", menu=helpmenu)
-        helpmenu.add_command(label="About", command=self.donothinghelp)
-
-    def donothingfile(self):
-        print("Button Pressed from File Menu")
-
-    def donothingedit(self):
-        print("Button Pressed from Edit Menu")
-
-    def donothinghelp(self):
-        print("Button Pressed from Help Menu")
+        self.parent = parent
+        self.initUI()
 
 
-class App(tk.Tk):
-    def __init__(self, *args, **kwargs):
-        tk.Tk.__init__(self, *args, **kwargs)
-        container = tk.Frame(self)
-        self.wm_state('zoomed')
-        self.geometry("700x500")
-        self.title("Rapid Pro")
-        container.pack(side="top", fill="both", expand=True)
-        container.grid_rowconfigure(0, weight=1)
-        container.grid_columnconfigure(0, weight=1)
-        menubar = MenuBar(self)
-        self.config(menu=menubar)
+    def initUI(self):
+
+        self.parent.title("Rapid Pro")
+
+        menubar = Menu(self.parent)
+        self.parent.config(menu=menubar)
+
+
+
+        fileMenu = Menu(menubar)
+        submenu = Menu(fileMenu)
+        fileMenu = Menu(self.parent, tearoff=0)
+        submenu = Menu(fileMenu, tearoff=0)
+        submenu.add_command(label="hello", command=self.doSub)
+        fileMenu.add_command(label="New", underline=0, command=self.doFile)
+        fileMenu.add_command(label="Open", underline=0, command=self.doFile)
+        fileMenu.add_command(label="Save", underline=0, command=self.doFile)
+        fileMenu.add_command(label="Save As...", command=self.doFile)
+        fileMenu.add_separator()
+        fileMenu.add_command(label="Settings", underline=0, command=self.doFile)
+        fileMenu.add_separator()
+        fileMenu.add_cascade(label="Recent", menu=submenu, underline=0)
+        fileMenu.add_separator()
+        fileMenu.add_command(label="Exit", underline=0, command=self.onExit)
+        menubar.add_cascade(label="File", menu=fileMenu)
+
+        editMenu = Menu (menubar)
+        editMenu = Menu(self.parent, tearoff=0)
+        editMenu.add_command(label="Cut", command=self.doEdit)
+        editMenu.add_command(label="Copy", command=self.doEdit)
+        editMenu.add_command(label="Paste", command=self.doEdit)
+        editMenu.add_command(label="Select", command=self.doEdit)
+        editMenu.add_command(label="Select all...", command=self.doEdit)
+        editMenu.add_command(label="Find", command=self.doEdit)
+        menubar.add_cascade(label="Edit", menu=editMenu)
+
+    def doFile(self):
+        print ("Button from file pressed")
+
+    def doEdit(self):
+        print("Button pressed from edit")
+
+    def onExit(self):
+        self.quit()
+
+    def doSub(self):
+        print ("Button pressed from Recent submenu")
+
+
+def main():
+
+    root = Tk()
+    root.geometry("700x500")
+    mainGUI = App(root)
+    root.mainloop()
+
 
 if __name__ == "__main__":
-    app = App()
-    app.mainloop()
+    main()
