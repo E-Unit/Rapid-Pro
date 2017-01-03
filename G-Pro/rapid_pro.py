@@ -9,9 +9,9 @@
 
 
 # import statements
-from tkinter import Tk, Frame, Menu
-from PIL import ImageTk, Image
-# from bin import new_file
+from tkinter import Tk, Frame, Menu, Canvas, Label, PhotoImage, Image
+from PIL import Image, ImageTk
+from bin import new_file
 
 
 # ////////////////////////////////////////////
@@ -32,61 +32,77 @@ class App(Frame):
         Frame.__init__(self, parent)
 
         self.parent = parent
-        self.initUI()
+        self.initui()
+        self.image = Image.open("rapid_pro_logo.png")
+        self.img_copy = self.image.copy()
+        self.background_image = ImageTk.PhotoImage(self.image)
+        self.background = Label(self, image=self.background_image)
+        self.background.pack(fill='both', expand='yes')
+        self.background.bind('<Configure>', self._resize_image)
 
+    def _resize_image(self, event):
 
-    def initUI(self):
+        new_width = event.width
+        new_height = event.height
+
+        self.image = self.img_copy.resize((new_width, new_height))
+        self.background_image = ImageTk.PhotoImage(self.image)
+        self.background.configure(image=self.background_image)
+
+    def initui(self):
 
         self.parent.title("Rapid Pro")
-
+        self.pack(fill='both', expand=1)
         menubar = Menu(self.parent)
         self.parent.config(menu=menubar)
 
+        filemenu = Menu(menubar)
+        recentsub = Menu(filemenu)
+        filemenu = Menu(self.parent, tearoff=0)
+        recentsub = Menu(filemenu, tearoff=0)
+
+        recentsub.add_command(label="hello", command=self.dosub)
 
 
-        fileMenu = Menu(menubar)
-        submenu = Menu(fileMenu)
-        fileMenu = Menu(self.parent, tearoff=0)
-        submenu = Menu(fileMenu, tearoff=0)
-        submenu.add_command(label="hello", command=self.doSub)
-        fileMenu.add_command(label="New", underline=0, command=self.doFile)
-        fileMenu.add_command(label="Open", underline=0, command=self.doFile)
-        fileMenu.add_command(label="Save", underline=0, command=self.doFile)
-        fileMenu.add_command(label="Save As...", command=self.doFile)
-        fileMenu.add_separator()
-        fileMenu.add_command(label="Settings", underline=0, command=self.doFile)
-        fileMenu.add_separator()
-        fileMenu.add_cascade(label="Recent", menu=submenu, underline=0)
-        fileMenu.add_separator()
-        fileMenu.add_command(label="Exit", underline=0, command=self.onExit)
-        menubar.add_cascade(label="File", menu=fileMenu)
+        filemenu.add_command(label="New", underline=0, command=new_file.create_new_file)
+        filemenu.add_command(label="Open", underline=0, command=self.dofile)
+        filemenu.add_command(label="Save", underline=0, command=self.dofile)
+        filemenu.add_command(label="Save As...", command=self.dofile)
+        filemenu.add_separator()
+        filemenu.add_command(label="Settings", underline=0, command=self.dofile)
+        filemenu.add_separator()
+        filemenu.add_cascade(label="Recent", menu=recentsub, underline=0)
+        filemenu.add_separator()
+        filemenu.add_command(label="Exit", underline=0, command=self.onexit)
+        menubar.add_cascade(label="File", menu=filemenu)
 
         editMenu = Menu (menubar)
         editMenu = Menu(self.parent, tearoff=0)
-        editMenu.add_command(label="Cut", command=self.doEdit)
-        editMenu.add_command(label="Copy", command=self.doEdit)
-        editMenu.add_command(label="Paste", command=self.doEdit)
-        editMenu.add_command(label="Select", command=self.doEdit)
-        editMenu.add_command(label="Select all...", command=self.doEdit)
-        editMenu.add_command(label="Find", command=self.doEdit)
+        editMenu.add_command(label="Cut", command=self.doedit)
+        editMenu.add_command(label="Copy", command=self.doedit)
+        editMenu.add_command(label="Paste", command=self.doedit)
+        editMenu.add_command(label="Select", command=self.doedit)
+        editMenu.add_command(label="Select all...", command=self.doedit)
+        editMenu.add_command(label="Find", command=self.doedit)
         menubar.add_cascade(label="Edit", menu=editMenu)
 
-    def doFile(self):
+    def dofile(self):
         print ("Button from file pressed")
 
-    def doEdit(self):
+    def doedit(self):
         print("Button pressed from edit")
 
-    def onExit(self):
+    def onexit(self):
         self.quit()
 
-    def doSub(self):
+    def dosub(self):
         print ("Button pressed from Recent submenu")
 
 
 def main():
 
     root = Tk()
+    root.state('normal')
     root.geometry("700x500")
     mainGUI = App(root)
     root.mainloop()
