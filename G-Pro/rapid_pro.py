@@ -3,7 +3,7 @@
 
 """ rapid_pro.py
     App for programming/converting G-Code for Haas and Okuma Mills
-    This app is taylored specifically for use by Rem-Tech ind.
+    This app is tailored specifically for use by Rem-Tech ind.
 
 """
 
@@ -12,7 +12,7 @@
 from tkinter import Tk, Frame, Menu, Canvas, Label, PhotoImage, Image
 from PIL import Image, ImageTk
 from bin import new_file
-
+from pathlib import Path
 
 # ////////////////////////////////////////////
 __author__ = "Ernie Peters"
@@ -64,7 +64,7 @@ class App(Frame):
         recentsub.add_command(label="hello", command=self.dosub)
 
 
-        filemenu.add_command(label="New", underline=0, command=new_file.create_new_file)
+        filemenu.add_command(label="New", underline=0, command=new_file.default_directory)
         filemenu.add_command(label="Open", underline=0, command=self.dofile)
         filemenu.add_command(label="Save", underline=0, command=self.dofile)
         filemenu.add_command(label="Save As...", command=self.dofile)
@@ -73,7 +73,7 @@ class App(Frame):
         filemenu.add_separator()
         filemenu.add_cascade(label="Recent", menu=recentsub, underline=0)
         filemenu.add_separator()
-        filemenu.add_command(label="Exit", underline=0, command=self.onexit)
+        filemenu.add_command(label="Exit", underline=1, command=self.onexit)
         menubar.add_cascade(label="File", menu=filemenu)
 
         editMenu = Menu (menubar)
@@ -101,9 +101,29 @@ class App(Frame):
 
 def main():
 
+    init_file = Path("bin/config.ini")
+
+    if init_file.is_file():
+        print ("file exists")
+
+    else:
+        print ("file no es here")
+
+
+    # Initialize main root window and center on screen
     root = Tk()
     root.state('normal')
-    root.geometry("700x500")
+    w = 700 # width of root window
+    h = 500 # height of root window
+
+    # get screen width and height
+    ws = root.winfo_screenwidth() # screen width
+    hs = root.winfo_screenheight() # screen height
+
+    # calculate x and y coordinates for the root window
+    x = (ws/2) - (w/2)
+    y = (hs/2) - (h/2)
+    root.geometry("%dx%d+%d+%d" % (w, h, x, y))
     mainGUI = App(root)
     root.mainloop()
 
