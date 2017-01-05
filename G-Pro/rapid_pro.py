@@ -9,9 +9,9 @@
 
 
 # import statements
-from tkinter import Tk, Frame, Menu, Canvas, Label, PhotoImage, Image
+from tkinter import Tk, Frame, Menu, Label
 from PIL import Image, ImageTk
-from bin import new_file
+from bin import new_file, open_file
 from pathlib import Path
 
 # ////////////////////////////////////////////
@@ -63,9 +63,10 @@ class App(Frame):
 
         recentsub.add_command(label="hello", command=self.dosub)
 
+        nf = new_file.newFile
 
-        filemenu.add_command(label="New", underline=0, command=new_file.default_directory)
-        filemenu.add_command(label="Open", underline=0, command=self.dofile)
+        filemenu.add_command(label="New", underline=0, command=nf.create_new_file)
+        filemenu.add_command(label="Open", underline=0, command=open_file.default_directory)
         filemenu.add_command(label="Save", underline=0, command=self.dofile)
         filemenu.add_command(label="Save As...", command=self.dofile)
         filemenu.add_separator()
@@ -104,22 +105,28 @@ def main():
     init_file = Path("bin/config.ini")
 
     if init_file.is_file():
-        print ("file exists")
+        print ("config.ini file exists")
 
     else:
-        print ("file no es here")
+     cfgfile = open("bin/config.ini", 'w+')
+
 
 
     # Initialize main root window and center on screen
     root = Tk()
     root.state('normal')
+
+    # Limit minimum size window can be sized to
+    root.minsize(650,450)
+
+    # set variable for start-up screen size
     w = 700 # width of root window
     h = 500 # height of root window
 
     # get screen width and height
     ws = root.winfo_screenwidth() # screen width
     hs = root.winfo_screenheight() # screen height
-
+    print(ws, hs)
     # calculate x and y coordinates for the root window
     x = (ws/2) - (w/2)
     y = (hs/2) - (h/2)
