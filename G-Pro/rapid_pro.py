@@ -11,7 +11,7 @@
 # import statements
 from tkinter import Tk, Frame, Menu, Label
 from PIL import Image, ImageTk
-from bin import new_file, open_file
+from bin import new_open_save as nos
 from pathlib import Path
 
 # ////////////////////////////////////////////
@@ -63,10 +63,9 @@ class App(Frame):
 
         recentsub.add_command(label="hello", command=self.dosub)
 
-        nf = new_file.newFile
 
-        filemenu.add_command(label="New", underline=0, command=nf.create_new_file)
-        filemenu.add_command(label="Open", underline=0, command=open_file.default_directory)
+        filemenu.add_command(label="New", underline=0, command=nos.Newfile.createNewFile)
+        filemenu.add_command(label="Open", underline=0, command=nos.Openfile.openExistingFile)
         filemenu.add_command(label="Save", underline=0, command=self.dofile)
         filemenu.add_command(label="Save As...", command=self.dofile)
         filemenu.add_separator()
