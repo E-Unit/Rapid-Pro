@@ -1,71 +1,83 @@
 #!/user/bin/env python
 #  Handle creating new file
 
+# import statements
 from tkinter import filedialog
-import getpass, os
-
+import getpass
+import os
+import platform
+import errno
 
 fd = filedialog
 
 
-class Newfile():
-
-    def createNewFile():
-
-        path = Defaultdir()
-
-        f = fd.asksaveasfilename(defaultextension=".rpro", initialdir=path)
-
-        if not f:
-            print ("Action canceled!")
-            return(None)
-
-        else:
-            file = open(f, 'w+')
-            print(f)
-            #f.close()
-
-class Openfile():
-
-    def openExistingFile(self):
-
-        f = fd.askopenfilename(defaultextension=".rpro", initialdir=self.path)
-
-        if not f:
-           print ("Action canceled!")
-           return(None)
-
-        else:
-            file = open(f, 'w+')
-            print(f)
-            #f.close()
-
-
 class Defaultdir:
 
-    initdir = None
-
-    #test platform and make working dir if not present
-    def defaultDirectory(self):
-
+    def __init__(self, initdir, user):
         self.initdir = initdir
+        self.user = user
 
-        #get user name
-        user = getpass.getuser()
+    # test platform and make working dir if not present
+    def defaultdirectory(self):
+
+        self.initdir = None
+        # get user name
+        self.user = getpass.getuser()
 
         if platform.system() == 'Windows':
 
-            initdir = 'C:/Users/%s/Documents/Rapid Pro' % user
+            self.initdir = 'C:/Users/%s/Documents/Rapid Pro' % self.user
 
         if platform.system() == 'Linux':
-            initdir = '/home/%s/Documents/Rapid Pro' % user
+            self.initdir = '/home/%s/Documents/Rapid Pro' % self.user
 
         else:
-            print("What in the world is your Operating System!?")
+            print("Don\'t tell me you\'re running apple :S ')
 
         try:
-            os.mkdir(initdir)
+            os.mkdir(self.initdir)
         except OSError as exception:
             if exception.errno != errno.EEXIST:
                 raise
-            return(initdir)
+            return self.initdir
+
+
+class Newfile(Defaultdir):
+
+    def __init__(self, f, file):
+        self.f = f
+        self.file = file
+
+    def createnewfile(self):
+
+
+        self.f = fd.asksaveasfilename(defaultextension=".rpro", initialdir=self.initdir)
+
+        if not self.f:
+            print("Action canceled!")
+            return None
+
+        else:
+            self.file = open(self.f, 'w+')
+            print(self.f)
+            # f.close()
+
+
+class Openfile(Defaultdir):
+
+    def __init__(self, f, file):
+        self.f = f
+        self.file = file
+
+    def openexistingfile(self):
+
+        self.f = fd.askopenfilename(defaultextension=".rpro", initialdir=self.initdir)
+
+        if not self.f:
+            print("Action canceled!")
+            return None
+
+        else:
+            self.file = open(self.f, 'w+')
+            print(self.f)
+            # f.close()
