@@ -11,73 +11,67 @@ import errno
 fd = filedialog
 
 
-class Defaultdir:
-
-    def __init__(self, initdir, user):
-        self.initdir = initdir
-        self.user = user
-
-    # test platform and make working dir if not present
-    def defaultdirectory(self):
-
-        self.initdir = None
-        # get user name
-        self.user = getpass.getuser()
-
-        if platform.system() == 'Windows':
-
-            self.initdir = 'C:/Users/%s/Documents/Rapid Pro' % self.user
-
-        if platform.system() == 'Linux':
-            self.initdir = '/home/%s/Documents/Rapid Pro' % self.user
-
-        else:
-            print('Don\'t tell me you\'re running apple :S ')
-
-        try:
-            os.mkdir(self.initdir)
-        except OSError as exception:
-            if exception.errno != errno.EEXIST:
-                raise
-            return self.initdir
-
-
-class Newfile(Defaultdir):
+# create new file
+class Newfile:
 
     def __init__(self, f, file):
         self.f = f
         self.file = file
 
-    def createnewfile(self):
+    @staticmethod
+    def createnewfile():
+
+        f = fd.asksaveasfilename(defaultextension=".rpro", initialdir=defaultdirectory)
+        checkcancel(f)
 
 
-        self.f = fd.asksaveasfilename(defaultextension=".rpro", initialdir=self.initdir)
-
-        if not self.f:
-            print("Action canceled!")
-            return None
-
-        else:
-            self.file = open(self.f, 'w+')
-            print(self.f)
-            # f.close()
-
-
-class Openfile(Defaultdir):
+# open existing file
+class Openfile:
 
     def __init__(self, f, file):
         self.f = f
         self.file = file
 
-    def openexistingfile(self):
+    @staticmethod
+    def openexistingfile():
 
-        self.f = fd.askopenfilename(defaultextension=".rpro", initialdir=self.initdir)
+        f = fd.askopenfilename(defaultextension=".rpro", initialdir=defaultdirectory)
+        checkcancel(f)
 
-        if not self.f:
-            print("Action canceled!")
-            return None
 
-        else:
-            self.file = open(self.f, 'w+')
-            print(self.f)
-            # f.close()
+# use default working directory
+def defaultdirectory():
+
+    initdir = None
+    # get user name
+    user = getpass.getuser()
+
+    if platform.system() == 'Windows':
+
+        initdir = 'C:/Users/%s/Documents/Rapid Pro' % user
+
+    if platform.system() == 'Linux':
+        initdir = '/home/%s/Documents/Rapid Pro' % user
+
+    else:
+        print('Don\'t tell me you\'re running apple :S ')
+
+    try:
+        os.mkdir(initdir)
+    except OSError as exception:
+        if exception.errno != errno.EEXIST:
+            raise
+        return initdir
+
+
+# check if action was canceled, if not, then open file
+def checkcancel(var1):
+
+    if not var1:
+        print("Action canceled!")
+        return None
+
+    else:
+        open(var1, 'w+')
+        print(var1)
+        # f.close()
