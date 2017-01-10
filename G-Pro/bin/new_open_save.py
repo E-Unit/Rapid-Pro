@@ -21,7 +21,7 @@ class Newfile:
     @staticmethod
     def createnewfile():
 
-        f = fd.asksaveasfilename(defaultextension=".rpro", initialdir=defaultdirectory)
+        f = fd.asksaveasfilename(defaultextension=".rpro", initialdir=defaultdirectory())
         checkcancel(f)
 
 
@@ -35,14 +35,13 @@ class Openfile:
     @staticmethod
     def openexistingfile():
 
-        f = fd.askopenfilename(defaultextension=".rpro", initialdir=defaultdirectory)
+        f = fd.askopenfilename(defaultextension=".rpro", initialdir=defaultdirectory())
         checkcancel(f)
 
 
 # use default working directory
 def defaultdirectory():
 
-    initdir = None
     # get user name
     user = getpass.getuser()
 
