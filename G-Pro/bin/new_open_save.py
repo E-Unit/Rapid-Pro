@@ -32,7 +32,7 @@ class Defaultdir:
             self.initdir = '/home/%s/Documents/Rapid Pro' % self.user
 
         else:
-            print("Don\'t tell me you\'re running apple :S ')
+            print('Don\'t tell me you\'re running apple :S ')
 
         try:
             os.mkdir(self.initdir)
