@@ -56,13 +56,12 @@ class App(Frame):
         menubar = Menu(self.parent)
         self.parent.config(menu=menubar)
 
-        filemenu = Menu(menubar)
-        recentsub = Menu(filemenu)
+        # filemenu = Menu(menubar)
+        # recentsub = Menu(filemenu)
         filemenu = Menu(self.parent, tearoff=0)
         recentsub = Menu(filemenu, tearoff=0)
 
         recentsub.add_command(label="hello", command=self.dosub)
-
 
         filemenu.add_command(label="New", underline=0, command=nos.Newfile.createnewfile)
         filemenu.add_command(label="Open", underline=0, command=nos.Openfile.openexistingfile)
@@ -76,27 +75,31 @@ class App(Frame):
         filemenu.add_command(label="Exit", underline=1, command=self.onexit)
         menubar.add_cascade(label="File", menu=filemenu)
 
-        editMenu = Menu (menubar)
-        editMenu = Menu(self.parent, tearoff=0)
-        editMenu.add_command(label="Cut", command=self.doedit)
-        editMenu.add_command(label="Copy", command=self.doedit)
-        editMenu.add_command(label="Paste", command=self.doedit)
-        editMenu.add_command(label="Select", command=self.doedit)
-        editMenu.add_command(label="Select all...", command=self.doedit)
-        editMenu.add_command(label="Find", command=self.doedit)
-        menubar.add_cascade(label="Edit", menu=editMenu)
+        # editMenu = Menu (menubar)
+        editmenu = Menu(self.parent, tearoff=0)
+        editmenu.add_command(label="Cut", command=self.doedit)
+        editmenu.add_command(label="Copy", command=self.doedit)
+        editmenu.add_command(label="Paste", command=self.doedit)
+        editmenu.add_command(label="Select", command=self.doedit)
+        editmenu.add_command(label="Select all...", command=self.doedit)
+        editmenu.add_command(label="Find", command=self.doedit)
+        menubar.add_cascade(label="Edit", menu=editmenu)
 
-    def dofile(self):
-        print ("Button from file pressed")
+    @staticmethod
+    def dofile():
+        print("Button from file pressed")
 
-    def doedit(self):
+    @staticmethod
+    def doedit():
         print("Button pressed from edit")
 
-    def onexit(self):
-        self.quit()
+    @staticmethod
+    def onexit():
+        quit()
 
-    def dosub(self):
-        print ("Button pressed from Recent submenu")
+    @staticmethod
+    def dosub():
+        print("Button pressed from Recent submenu")
 
 
 def main():
@@ -104,33 +107,31 @@ def main():
     init_file = Path("bin/config.ini")
 
     if init_file.is_file():
-        print ("config.ini file exists")
+        print("config.ini file exists")
 
     else:
      cfgfile = open("bin/config.ini", 'w+')
-
-
 
     # Initialize main root window and center on screen
     root = Tk()
     root.state('normal')
 
     # Limit minimum size window can be sized to
-    root.minsize(650,450)
+    root.minsize(650, 450)
 
     # set variable for start-up screen size
-    w = 700 # width of root window
-    h = 500 # height of root window
+    w = 700  # width of root window
+    h = 500  # height of root window
 
     # get screen width and height
-    ws = root.winfo_screenwidth() # screen width
-    hs = root.winfo_screenheight() # screen height
+    ws = root.winfo_screenwidth()  # screen width
+    hs = root.winfo_screenheight()  # screen height
     print(ws, hs)
     # calculate x and y coordinates for the root window
     x = (ws/2) - (w/2)
     y = (hs/2) - (h/2)
     root.geometry("%dx%d+%d+%d" % (w, h, x, y))
-    mainGUI = App(root)
+    App(root)
     root.mainloop()
 
 
