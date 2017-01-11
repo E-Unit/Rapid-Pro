@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="90685364-acc9-4e92-8ac3-f85522b74c67" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/bin/config.ini" afterPath="$PROJECT_DIR$/bin/config_handler.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="untitled.iws" />
@@ -589,7 +588,14 @@
       <option name="project" value="LOCAL" />
       <updated>1484085752615</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="started working on creating configparser">
+      <created>1484169329413</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1484169329413</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -694,7 +700,8 @@
     <MESSAGE value="Putting code in classes, learning about the 'self' variable and &quot;New&quot; &amp; &quot;Open&quot; buttons work now" />
     <MESSAGE value="Working on new file and open file classes and getting them to work properly" />
     <MESSAGE value="New file and open file buttons working. Took defaultdirectory out of class and made it definition only and moved the check cancel button to its own def and call it from both New and Open buttons." />
-    <option name="LAST_COMMIT_MESSAGE" value="New file and open file buttons working. Took defaultdirectory out of class and made it definition only and moved the check cancel button to its own def and call it from both New and Open buttons." />
+    <MESSAGE value="started working on creating configparser" />
+    <option name="LAST_COMMIT_MESSAGE" value="started working on creating configparser" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
