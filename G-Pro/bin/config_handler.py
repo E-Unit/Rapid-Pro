@@ -1,25 +1,29 @@
-#!/user/bin/env python
+#!/user/bin/python
 
 # Handle all configurations and settings
 
 # import statements
 import configparser
-import os
-import errno
+
 
 
 # variable declarations
-config = configparser.ConfigParser()
+parser = configparser.ConfigParser()
 path = "config.ini"
 
 
 # test if config.ini exists and create if it doesn't
-def configdir():
+def checkconfig():
 
     try:
         open(path, "a")
         print ("config.ini created")
-    except IOError as exception:
-        raise print('Could not create config.ini')
+    except IOError as e:
+        print('Could not fetch configurations', e)
 
 
+
+parser.read('config.ini')
+
+# parser.write
+print (parser.get('file_settings', 'savedir'))

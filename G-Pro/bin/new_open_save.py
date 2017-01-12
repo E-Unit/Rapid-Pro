@@ -49,7 +49,7 @@ def defaultdirectory():
 
         initdir = 'C:/Users/%s/Documents/Rapid Pro' % user
 
-    if platform.system() == 'Linux':
+    elif platform.system() == 'Linux':
         initdir = '/home/%s/Documents/Rapid Pro' % user
 
     else:

@@ -104,14 +104,6 @@ class App(Frame):
 
 def main():
 
-    init_file = Path("bin/config.ini")
-
-    if init_file.is_file():
-        print("config.ini file exists")
-
-    else:
-     cfgfile = open("bin/config.ini", 'w+')
-
     # Initialize main root window and center on screen
     root = Tk()
     root.state('normal')
