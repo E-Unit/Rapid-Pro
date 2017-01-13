@@ -6,24 +6,32 @@
 import configparser
 
 
-
 # variable declarations
 parser = configparser.ConfigParser()
-path = "config.ini"
+path = "config.INI"
 
-
-# test if config.ini exists and create if it doesn't
+# test if config.INI exists and create if it doesn't
 def checkconfig():
 
     try:
-        open(path, "a")
-        print ("config.ini created")
+        f = open(path, "a")
+        print ("config.INI created")
+        f.close()
     except IOError as e:
         print('Could not fetch configurations', e)
 
 
+def defworkdir():
 
-parser.read('config.ini')
+    checkconfig()
+    parser.read_file('config.INI')
+    #
+    # workdir = parser.get('File_Settings', 'savedir')
+    # print (workdir)
+    # return workdir
 
-# parser.write
-print (parser.get('file_settings', 'savedir'))
+
+defworkdir()
+# for candidate in ['File_Settings']:
+#     print('{:<12}: {}'. format(candidate, parser.has_section(candidate)))
+

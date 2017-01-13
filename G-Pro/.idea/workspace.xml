@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="90685364-acc9-4e92-8ac3-f85522b74c67" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/bin/config.ini" afterPath="$PROJECT_DIR$/bin/config.INI" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/config.ini" afterPath="$PROJECT_DIR$/bin/config.ini" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/config_handler.py" afterPath="$PROJECT_DIR$/bin/config_handler.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/new_open_save.py" afterPath="$PROJECT_DIR$/bin/new_open_save.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rapid_pro.py" afterPath="$PROJECT_DIR$/rapid_pro.py" />
     </list>
     <ignored path="untitled.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,52 +24,60 @@
     <favorites_list name="untitled" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="rapid_pro.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rapid_pro.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-572">
-              <caret line="60" column="7" lean-forward="true" selection-start-line="60" selection-start-column="7" selection-end-line="60" selection-end-column="7" />
-              <folding>
-                <element signature="e#218#260#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="new_open_save.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bin/new_open_save.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="643">
-              <caret line="65" column="54" lean-forward="true" selection-start-line="65" selection-start-column="54" selection-end-line="65" selection-end-column="54" />
-              <folding>
-                <element signature="e#72#102#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config_handler.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/bin/config_handler.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="533">
-              <caret line="28" column="33" lean-forward="false" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.ini" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bin/config.ini">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="1" column="36" lean-forward="false" selection-start-line="1" selection-start-column="36" selection-end-line="1" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.4261632">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="rapid_pro.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/rapid_pro.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="2015">
+                  <caret line="98" column="0" lean-forward="true" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+                  <folding>
+                    <element signature="e#218#260#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="new_open_save.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/bin/new_open_save.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="572">
+                  <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+                  <folding>
+                    <element signature="e#72#102#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="config.INI" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/bin/config.INI">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="config_handler.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/bin/config_handler.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="395">
+                  <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -88,6 +95,9 @@
         <option name="title" value="Current Branch" />
       </GitPushTagMode>
     </option>
+    <push-targets>
+      <push-target-info repo="$PROJECT_DIR$/.." source="master" target-remote="origin" target-branch="develop" />
+    </push-targets>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -104,9 +114,10 @@
         <option value="$PROJECT_DIR$/bin/new_file.py" />
         <option value="$PROJECT_DIR$/bin/default_dir.py" />
         <option value="$PROJECT_DIR$/bin/open_file.py" />
-        <option value="$PROJECT_DIR$/bin/config.ini" />
         <option value="$PROJECT_DIR$/rapid_pro.py" />
         <option value="$PROJECT_DIR$/bin/new_open_save.py" />
+        <option value="$PROJECT_DIR$/bin/config.ini" />
+        <option value="$PROJECT_DIR$/bin/config.INI" />
         <option value="$PROJECT_DIR$/bin/config_handler.py" />
       </list>
     </option>
@@ -134,7 +145,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -177,6 +187,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -424,9 +435,9 @@
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.config_handler" />
         <item index="1" class="java.lang.String" itemvalue="Python.rapid_pro" />
-        <item index="2" class="java.lang.String" itemvalue="Python.new_open_save" />
-        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in rapid_pro (3)" />
-        <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in rapid_pro (2)" />
+        <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in rapid_pro (2)" />
+        <item index="3" class="java.lang.String" itemvalue="Python.new_open_save" />
+        <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in rapid_pro (3)" />
       </list>
     </recent_temporary>
   </component>
@@ -507,13 +518,17 @@
       <option name="project" value="LOCAL" />
       <updated>1484169387811</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="implemented check to see if there is a config.ini file">
+      <created>1484258729692</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1484258729692</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_rapid_pro - 2016.12.29 at 10h 01m 43s.xml">
-      <configuration name="Unittests in rapid_pro" configurationId="tests" />
-    </history-entry>
     <history-entry file="Unittests_in_rapid_pro - 2016.12.29 at 10h 03m 22s.xml">
       <configuration name="Unittests in rapid_pro" configurationId="tests" />
     </history-entry>
@@ -530,6 +545,9 @@
       <configuration name="Unittests in rapid_pro (2)" configurationId="tests" />
     </history-entry>
     <history-entry file="Unittests_in_rapid_pro_(2) - 2016.12.29 at 10h 09m 14s.xml">
+      <configuration name="Unittests in rapid_pro (2)" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_rapid_pro_(2) - 2017.01.13 at 12h 31m 55s.xml">
       <configuration name="Unittests in rapid_pro (2)" configurationId="tests" />
     </history-entry>
     <history-entry file="Unittests_in_rapid_pro_(3) - 2016.12.29 at 10h 02m 59s.xml">
@@ -558,9 +576,10 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18917441" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928064" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928064" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928064" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29787233" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29787233" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -571,7 +590,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928064" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -613,7 +631,8 @@
     <MESSAGE value="Working on new file and open file classes and getting them to work properly" />
     <MESSAGE value="New file and open file buttons working. Took defaultdirectory out of class and made it definition only and moved the check cancel button to its own def and call it from both New and Open buttons." />
     <MESSAGE value="started working on creating configparser" />
-    <option name="LAST_COMMIT_MESSAGE" value="started working on creating configparser" />
+    <MESSAGE value="implemented check to see if there is a config.ini file" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented check to see if there is a config.ini file" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -624,7 +643,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="13" />
+      <option name="time" value="14" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -895,18 +914,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bin/config.ini">
+    <entry file="file://$PROJECT_DIR$/bin/config.INI">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="1" column="36" lean-forward="false" selection-start-line="1" selection-start-column="36" selection-end-line="1" selection-end-column="36" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/config_handler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/rapid_pro.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-572">
-          <caret line="60" column="7" lean-forward="true" selection-start-line="60" selection-start-column="7" selection-end-line="60" selection-end-column="7" />
+        <state relative-caret-position="2015">
+          <caret line="98" column="0" lean-forward="true" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
           <folding>
             <element signature="e#218#260#0" expanded="true" />
           </folding>
@@ -915,19 +942,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bin/new_open_save.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="643">
-          <caret line="65" column="54" lean-forward="true" selection-start-line="65" selection-start-column="54" selection-end-line="65" selection-end-column="54" />
+        <state relative-caret-position="572">
+          <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
           <folding>
             <element signature="e#72#102#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/config_handler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="533">
-          <caret line="28" column="33" lean-forward="false" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>

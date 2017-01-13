@@ -3,6 +3,7 @@
 
 # import statements
 from tkinter import filedialog
+from bin import config_handler
 import getpass
 import os
 import platform
@@ -42,25 +43,33 @@ class Openfile:
 # use default working directory
 def defaultdirectory():
 
-    # get user name
-    user = getpass.getuser()
+    initdir = None
 
-    if platform.system() == 'Windows':
+    if config_handler.defworkdir() == "":
 
-        initdir = 'C:/Users/%s/Documents/Rapid Pro' % user
+        # get user name
+        user = getpass.getuser()
 
-    elif platform.system() == 'Linux':
-        initdir = '/home/%s/Documents/Rapid Pro' % user
+        if platform.system() == 'Windows':
+
+            initdir = 'C:/Users/%s/Documents/Rapid Pro' % user
+
+        elif platform.system() == 'Linux':
+            initdir = '/home/%s/Documents/Rapid Pro' % user
+
+        else:
+            print('Don\'t tell me you\'re running apple :S ')
+
+        try:
+            os.mkdir(initdir)
+        except OSError as exception:
+            if exception.errno != errno.EEXIST:
+                raise
+            return initdir
 
     else:
-        print('Don\'t tell me you\'re running apple :S ')
+        initdir = config_handler.defworkdir()
 
-    try:
-        os.mkdir(initdir)
-    except OSError as exception:
-        if exception.errno != errno.EEXIST:
-            raise
-        return initdir
 
 
 # check if action was canceled, if not, then open file
