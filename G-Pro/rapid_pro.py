@@ -12,7 +12,7 @@
 from tkinter import Tk, Frame, Menu, Label
 from PIL import Image, ImageTk
 from bin import new_open_save as nos
-from pathlib import Path
+
 
 # ////////////////////////////////////////////
 __author__ = "Ernie Peters"

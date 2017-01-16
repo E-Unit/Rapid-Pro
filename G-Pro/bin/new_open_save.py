@@ -43,9 +43,7 @@ class Openfile:
 # use default working directory
 def defaultdirectory():
 
-    initdir = None
-
-    if config_handler.defworkdir() == "":
+    if ('config.ini', 'File_Settings', 'workdir') == "":
 
         # get user name
         user = getpass.getuser()
@@ -53,23 +51,27 @@ def defaultdirectory():
         if platform.system() == 'Windows':
 
             initdir = 'C:/Users/%s/Documents/Rapid Pro' % user
+            makedir(initdir)
 
         elif platform.system() == 'Linux':
             initdir = '/home/%s/Documents/Rapid Pro' % user
+            makedir(initdir)
 
         else:
             print('Don\'t tell me you\'re running apple :S ')
 
-        try:
-            os.mkdir(initdir)
-        except OSError as exception:
-            if exception.errno != errno.EEXIST:
-                raise
-            return initdir
 
     else:
         initdir = config_handler.defworkdir()
+        return initdir
 
+def makedir(var1):
+
+    try:
+        os.mkdir(var1)
+    except OSError as exception:
+        if exception.errno != errno.EEXIST:
+            raise
 
 
 # check if action was canceled, if not, then open file
