@@ -24,20 +24,20 @@ def get_config(path):
      Returns the config object
     """
     config = configparser.ConfigParser()
-    config.read(path)
-    return config
+    return config.read(path)
+
 
 def get_setting(path, section, setting):
     """
     get values from front sections
     """
     checkconfig(path)
-    config = get_config(path)
-    value = config.get(section, setting)
+    get_config(path)
+    # config = get_config(path)
+    value = get_config.config.get(section, setting)
     print ("{section} {setting} is {value}".format(section=section,
                                                   setting=setting, value=value))
     return value
 
 
-# checkconfig(confile)
-# get_setting(confile, 'File_Settings', 'workdir')
+get_setting(confile, 'File_Settings', 'workdir')
