@@ -5,6 +5,7 @@
 # import statements
 import configparser
 
+
 confile = "config.ini"
 
 
@@ -19,12 +20,13 @@ def checkconfig(path):
         print('Could not fetch configurations', exception)
 
 
-def get_config(path):
+def get_config(path, section, setting):
     """
      Returns the config object
     """
     config = configparser.ConfigParser()
-    return config.read(path)
+    config.read(path)
+    return config.get(section, setting)
 
 
 def get_setting(path, section, setting):
@@ -32,12 +34,10 @@ def get_setting(path, section, setting):
     get values from front sections
     """
     checkconfig(path)
-    get_config(path)
-    # config = get_config(path)
-    value = get_config.config.get(section, setting)
-    print ("{section} {setting} is {value}".format(section=section,
-                                                  setting=setting, value=value))
+    value = get_config(path, section, setting)
+    print("Section [{section}], Option [{setting}] is {value}".format(section=section,
+                                                                      setting=setting, value=value))
     return value
 
 
-get_setting(confile, 'File_Settings', 'workdir')
+# print (get_setting(confile, 'File_Settings', 'workdir'))

@@ -3,11 +3,11 @@
 
 # import statements
 from tkinter import filedialog
-from bin import config_handler
 import getpass
 import os
 import platform
 import errno
+
 
 fd = filedialog
 
@@ -43,7 +43,7 @@ class Openfile:
 # use default working directory
 def defaultdirectory():
 
-    if ('config.ini', 'File_Settings', 'workdir') == "":
+    if config_handler.get_setting('config.ini', 'File_Settings', 'workdir')== False:
 
         # get user name
         user = getpass.getuser()
@@ -60,10 +60,10 @@ def defaultdirectory():
         else:
             print('Don\'t tell me you\'re running apple :S ')
 
-
     else:
-        initdir = config_handler.defworkdir()
+        initdir = get_setting('config.ini', 'File_Settings', 'workdir')
         return initdir
+
 
 def makedir(var1):
 
