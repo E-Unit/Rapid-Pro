@@ -7,7 +7,7 @@ import getpass
 import os
 import platform
 import errno
-
+from . import config_handler
 
 fd = filedialog
 
