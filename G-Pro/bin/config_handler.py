@@ -6,9 +6,6 @@
 import configparser
 
 
-confile = "config.ini"
-
-
 # test if config.ini exists and create if it doesn't
 def checkconfig(path):
 
@@ -26,7 +23,8 @@ def get_config(path, section, setting):
     """
     config = configparser.ConfigParser()
     config.read(path)
-    return config.get(section, setting)
+    result = config.get(section, setting)
+    return result
 
 
 def get_setting(path, section, setting):
@@ -40,4 +38,4 @@ def get_setting(path, section, setting):
     return value
 
 
-# print (get_setting(confile, 'File_Settings', 'workdir'))
+# print(get_setting('config.ini', 'File_Settings', 'workdir'))

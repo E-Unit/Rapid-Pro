@@ -43,7 +43,7 @@ class Openfile:
 # use default working directory
 def defaultdirectory():
 
-    if config_handler.get_setting('config.ini', 'File_Settings', 'workdir')== False:
+    if config_handler.get_setting('/bin/config.ini', 'File_Settings', 'workdir') is False:
 
         # get user name
         user = getpass.getuser()
@@ -61,7 +61,7 @@ def defaultdirectory():
             print('Don\'t tell me you\'re running apple :S ')
 
     else:
-        initdir = get_setting('config.ini', 'File_Settings', 'workdir')
+        initdir = config_handler.get_setting('config.ini', 'File_Settings', 'workdir')
         return initdir
 
 
