@@ -3,10 +3,6 @@
 
 # import statements
 from tkinter import filedialog
-import getpass
-import os
-import platform
-import errno
 from . import config_handler
 
 fd = filedialog
@@ -22,7 +18,7 @@ class Newfile:
     @staticmethod
     def createnewfile():
 
-        f = fd.asksaveasfilename(defaultextension=".rpro", initialdir=defaultdirectory())
+        f = fd.asksaveasfilename(defaultextension=".rpro", initialdir=config_handler.defaultdirectory())
         checkcancel(f)
 
 
@@ -36,42 +32,8 @@ class Openfile:
     @staticmethod
     def openexistingfile():
 
-        f = fd.askopenfilename(defaultextension=".rpro", initialdir=defaultdirectory())
+        f = fd.askopenfilename(defaultextension=".rpro", initialdir=config_handler.defaultdirectory())
         checkcancel(f)
-
-
-# use default working directory
-def defaultdirectory():
-
-    if config_handler.get_setting('/bin/config.ini', 'File_Settings', 'workdir') is False:
-
-        # get user name
-        user = getpass.getuser()
-
-        if platform.system() == 'Windows':
-
-            initdir = 'C:/Users/%s/Documents/Rapid Pro' % user
-            makedir(initdir)
-
-        elif platform.system() == 'Linux':
-            initdir = '/home/%s/Documents/Rapid Pro' % user
-            makedir(initdir)
-
-        else:
-            print('Don\'t tell me you\'re running apple :S ')
-
-    else:
-        initdir = config_handler.get_setting('config.ini', 'File_Settings', 'workdir')
-        return initdir
-
-
-def makedir(var1):
-
-    try:
-        os.mkdir(var1)
-    except OSError as exception:
-        if exception.errno != errno.EEXIST:
-            raise
 
 
 # check if action was canceled, if not, then open file
