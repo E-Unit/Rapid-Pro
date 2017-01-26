@@ -3,8 +3,7 @@
 
 # import statements
 from tkinter import filedialog
-from . import config_handler
-
+from \bin\conf
 fd = filedialog
 
 
