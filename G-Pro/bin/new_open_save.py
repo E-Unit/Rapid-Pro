@@ -6,7 +6,7 @@ from tkinter import filedialog
 from bin import config_handler
 
 fd = filedialog
-
+path = 'bin/config.ini'
 
 # create new file
 class Newfile:
@@ -18,7 +18,7 @@ class Newfile:
     @staticmethod
     def createnewfile():
 
-        f = fd.asksaveasfilename(defaultextension=".rpro", initialdir=config_handler.defaultdirectory())
+        f = fd.asksaveasfilename(defaultextension=".rpro", initialdir=config_handler.defaultdirectory(path))
         checkcancel(f)
 
 
@@ -32,7 +32,7 @@ class Openfile:
     @staticmethod
     def openexistingfile():
 
-        f = fd.askopenfilename(defaultextension=".rpro", initialdir=config_handler.defaultdirectory())
+        f = fd.askopenfilename(defaultextension=".rpro", initialdir=config_handler.defaultdirectory(path))
         checkcancel(f)
 
 

@@ -45,7 +45,7 @@ def get_setting(path, section, setting):
 # use default working directory
 def defaultdirectory(path):
 
-    value = get_setting(confile, 'File_Settings', 'workdir')
+    value = get_setting(path, 'File_Settings', 'workdir')
     print("hello bubba")
 
     if value is False:
@@ -57,16 +57,20 @@ def defaultdirectory(path):
 
             initdir = 'C:/Users/%s/Documents/Rapid Pro' % user
             makedir(initdir)
+            print("I'm on Windows")
 
         elif platform.system() == 'Linux':
             initdir = '/home/%s/Documents/Rapid Pro' % user
             makedir(initdir)
+            print("I'm on Linus")
 
         else:
             print('Don\'t tell me you\'re running apple :S ')
+            print("Garbage")
 
     else:
         initdir = get_setting(path, 'File_Settings', 'workdir')
+        print("here we go")
         return initdir
 
 
@@ -78,5 +82,5 @@ def makedir(var1):
         if exception.errno != errno.EEXIST:
             raise
 
-confile = 'config.ini'
-print(get_setting(confile, 'File_Settings', 'workdir'))
+# confile = 'bin/config.ini'
+# print(get_setting(confile, 'File_Settings', 'workdir'))
