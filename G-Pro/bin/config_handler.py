@@ -11,10 +11,10 @@ import errno
 
 
 # test if config.ini exists and create if it doesn't
-def checkconfig():
+def checkconfig(path):
 
     try:
-        file = open('/bin/config.ini', "a")
+        file = open(path, "a")
         print("config.ini present")
         file.close()
     except IOError as exception:
@@ -35,7 +35,7 @@ def get_setting(path, section, setting):
     """
     get values from front sections
     """
-    checkconfig()
+    checkconfig(path)
     value = get_config(path, section, setting)
     print("Section [{section}], Option [{setting}] is {value}".format(section=section,
                                                                       setting=setting, value=value))
@@ -43,9 +43,9 @@ def get_setting(path, section, setting):
 
 
 # use default working directory
-def defaultdirectory():
+def defaultdirectory(path):
 
-    value = get_setting('/bin/config.ini', 'File_Settings', 'workdir')
+    value = get_setting(confile, 'File_Settings', 'workdir')
     print("hello bubba")
 
     if value is False:
@@ -66,7 +66,7 @@ def defaultdirectory():
             print('Don\'t tell me you\'re running apple :S ')
 
     else:
-        initdir = get_setting('/bin/config.ini', 'File_Settings', 'workdir')
+        initdir = get_setting(path, 'File_Settings', 'workdir')
         return initdir
 
 
@@ -78,5 +78,5 @@ def makedir(var1):
         if exception.errno != errno.EEXIST:
             raise
 
-checkconfig()
-# print(get_setting('/bin/config.ini', 'File_Settings', 'workdir'))
+confile = 'config.ini'
+print(get_setting(confile, 'File_Settings', 'workdir'))
