@@ -46,9 +46,9 @@ def get_setting(path, section, setting):
 def defaultdirectory(path):
 
     value = get_setting(path, 'File_Settings', 'workdir')
-    print("hello bubba")
+    print(value)
 
-    if value is False:
+    if value == None:
 
         # get user name
         user = getpass.getuser()
@@ -69,7 +69,7 @@ def defaultdirectory(path):
             print("Garbage")
 
     else:
-        initdir = get_setting(path, 'File_Settings', 'workdir')
+        initdir = value
         print("here we go")
         return initdir
 
@@ -82,5 +82,3 @@ def makedir(var1):
         if exception.errno != errno.EEXIST:
             raise
 
-# confile = 'bin/config.ini'
-# print(get_setting(confile, 'File_Settings', 'workdir'))
