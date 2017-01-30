@@ -8,16 +8,18 @@ from bin import config_handler
 fd = filedialog
 # path = 'bin/config.ini'
 
+
 # create new file
 class Newfile:
 
-    def __init__(self, f, file):
+    def __init__(self, f, file, path):
         self.f = f
         self.file = file
+        self.path = path
 
     @staticmethod
-    def createnewfile(path):
-
+    def createnewfile():
+        path = 'bin/config.ini'
         f = fd.asksaveasfilename(defaultextension=".rpro", initialdir=config_handler.defaultdirectory(path))
         checkcancel(f)
 
@@ -25,13 +27,14 @@ class Newfile:
 # open existing file
 class Openfile:
 
-    def __init__(self, f, file):
+    def __init__(self, f, file, path):
         self.f = f
         self.file = file
+        self.path = path
 
     @staticmethod
     def openexistingfile():
-
+        path = 'bin/config.ini'
         f = fd.askopenfilename(defaultextension=".rpro", initialdir=config_handler.defaultdirectory(path))
         checkcancel(f)
 

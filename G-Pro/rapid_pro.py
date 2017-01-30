@@ -63,7 +63,7 @@ class App(Frame):
 
         recentsub.add_command(label="hello", command=self.dosub)
 
-        filemenu.add_command(label="New", underline=0, command=nos.Newfile.createnewfile(path))
+        filemenu.add_command(label="New", underline=0, command=nos.Newfile.createnewfile)
         filemenu.add_command(label="Open", underline=0, command=self.dofile)
         filemenu.add_command(label="Save", underline=0, command=self.dofile)
         filemenu.add_command(label="Save As...", command=self.dofile)

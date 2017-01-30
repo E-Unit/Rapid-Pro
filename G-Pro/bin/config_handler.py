@@ -46,9 +46,10 @@ def get_setting(path, section, setting):
 def defaultdirectory(path):
 
     value = get_setting(path, 'File_Settings', 'workdir')
-    print(value)
+    if not value:
+        print('empty')
 
-    if value == None:
+    if not value:
 
         # get user name
         user = getpass.getuser()
@@ -57,12 +58,14 @@ def defaultdirectory(path):
 
             initdir = 'C:/Users/%s/Documents/Rapid Pro' % user
             makedir(initdir)
-            print("I'm on Windows")
+            print("Running Windows")
+            return initdir
 
         elif platform.system() == 'Linux':
             initdir = '/home/%s/Documents/Rapid Pro' % user
             makedir(initdir)
-            print("I'm on Linus")
+            print("Running Linux")
+            return initdir
 
         else:
             print('Don\'t tell me you\'re running apple :S ')
